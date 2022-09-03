@@ -1,6 +1,71 @@
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap');
 
 body {
   font-family: 'Roboto Slab', serif;
+  max-width: 1280px;
+  margin: auto;
 }
+
+/* ============== HEADER START ============== */
+
+/* TOP MENU START */
+.top-menu .nav-link {
+  position: relative;
+}
+
+.top-menu .nav-link.active,
+.top-menu .nav-link:hover {
+  color: #5D5FEF;
+}
+
+.top-menu .nav-link.active::after,
+.top-menu .nav-link:hover::after {
+  content: "";
+  height: 2px;
+  width: 20px;
+  display: block;
+  margin: auto;
+  background-color: #5D5FEF;
+  color: #5D5FEF;
+  border-radius: 2px;
+}
+
+/* TOP MENU END */
+
+.nav-hr {
+  margin: 0 4px;
+  padding: 0;
+  color: #CDCDCD;
+}
+
+.navbar-toggler {
+  font-size: 20px;
+  border: none;
+}
+
+button.navbar-toggler {
+  border: 2px solid #858585;
+  outline: none;
+}
+
+button.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* MAIN MENU START */
+.main-menu .nav-item .nav-link {
+  padding: 5px 10px;
+}
+
+.main-menu .nav-item .nav-link.active,
+.main-menu .nav-item .nav-link:hover {
+  background-color: #EEEFFF;
+  color: #5D5FEF;
+  border-radius: 5px;
+}
+
+/* MAIN MENU END */
+
+/* ============== HEADER END ============== */

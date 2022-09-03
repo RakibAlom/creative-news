@@ -6,14 +6,13 @@ const loadCategory = async () => {
 }
 const allCategory = (categories) => {
   const newsCategory = getId('news-category');
-  for (let category of categories) {
+  categories.forEach(category => {
     const li = document.createElement('li');
     li.classList.add('nav-item');
     li.innerHTML = `
-      <a class="nav-link" href="#">${category.category_name}</a>
+      <a class="nav-link" href="#" onclick="categoryPost('${category.category_id}')">${category.category_name}</a>
     `
     newsCategory.appendChild(li);
-    console.log(newsCategory)
-  }
+  })
 }
 loadCategory();

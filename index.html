@@ -22,11 +22,11 @@
     <nav class="navbar navbar-expand top-menu">
       <div class="container-xl">
         <a class="navbar-brand" href="#">
-          <span class="bg-primary-color py-1 px-2 text-white rounded-1">Creative</span> News
+          <!-- <span class="bg-primary-color py-1 px-2 text-white rounded-1">Creative</span> News -->Creative News
         </a>
         <div class="navbar-nav ms-auto gap-1 gap-md-3">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="#">Blog</a>
           <a class="nav-link profile" href="#">
             <img src="./images/avator.png" alt="" width="30" height="30" class="rounded-circle">
           </a>
@@ -48,33 +48,9 @@
         </button>
         <div class="collapse navbar-collapse" id="mainMenu">
           <div class="container-xl">
-            <ul class="navbar-nav w-100 justify-content-between">
+            <ul id="news-category" class="navbar-nav w-100 justify-content-between">
               <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Breaking News</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Reguler News</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">International News</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Sports</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Entertainment</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Culture</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Arts</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">All News</a>
+                <a class="nav-link active" href="#">Home</a>
               </li>
             </ul>
           </div>
@@ -95,7 +71,7 @@
       <!-- CONTENT ALERT END -->
 
       <!-- FILTER AREA START -->
-      <div class="filter d-flex justify-content-between py-4">
+      <div class="filter d-md-flex justify-content-between py-4">
         <div class="short-filter">
           <span>Sort By View:</span>
           <select class="short-filter ms-3" name="short-filter" id="short-filter">
@@ -111,42 +87,40 @@
       <!-- FILTER AREA END -->
 
       <!-- NEWS CONTENT START -->
-      <div class="news-content py-4">
+      <div class="news-content py-2">
 
         <!-- SINGLE NEWS START -->
         <div class="single-news-content">
-          <div class="card mb-3 py-3 px-3 border-0 rounded-3">
+          <div class="card mb-3 py-2 px-2 px-md-3 py-md-3 border-0 rounded-3">
             <div class="row g-2">
               <div class="col-md-4 col-lg-3">
                 <img src="./images/blog-1.png" class="img-fluid w-100 rounded-3" alt="...">
               </div>
-              <div class="col-md-8 col-lg-9">
-                <div class="card-body h-100 d-flex flex-column justify-content-center">
-                  <h2 class="card-title">The best fashion influencers to follow for sartorial inspiration</h2>
-                  <p class="card-text py-3">
+              <div class="col-md-8 col-lg-9 py-md-2 px-md-4">
+                <div class="card-body px-0 px-md-2 h-100 d-flex flex-column justify-content-center">
+                  <h2 class="news-title">The best fashion influencers to follow for sartorial inspiration</h2>
+                  <p class="news-description py-3 text-color">
                     From our favourite UK influencers to the best missives from Milan and the coolest New Yorkers, read
                     on some of the best fashion blogs out there, and for even more inspiration, do head to our separate
                     black fashion influencer round-up.
 
-                  <p>
+                    <br>
+
                     Fancy some shopping deals? Check out these amazing sales: Zara Black Friday, ASOS Black Friday,
                     Missoma Black Friday and Gucci Black Friday...
                   </p>
-                  </p>
                   <div class="single-content-extra-info">
                     <div class="d-flex justify-content-between align-items-center">
-                      <div class="author-info d-flex">
-                        <img src="./images/avator.png" class="img-fluid" alt="author"
-                          style="height: 45px; width: 45px;">
-                        <div class="ms-2">
-                          <span>Jane Cooper</span>
-                          <br>
-                          <span>Jan 10, 2022</span>
+                      <div class="author-info d-flex align-items-center">
+                        <img src="./images/avator.png" class="img-fluid" alt="author">
+                        <div class="ms-2 d-flex flex-column">
+                          <span class="text-dark">Jane Cooper</span>
+                          <span class="date">Jan 10, 2022</span>
                         </div>
                       </div>
                       <div class="news-view">
                         <i class="fa-regular fa-eye"></i>
-                        <span class="ps-2">1.5M</span>
+                        <span class="ps-2 fw-bold">1.5M</span>
                       </div>
                       <div class="news-rating d-none d-md-block">
                         <i class="fa-regular fa-star-half-stroke"></i>
@@ -155,116 +129,10 @@
                         <i class="fa-regular fa-star"></i>
                         <i class="fa-regular fa-star"></i>
                       </div>
-                      <div class="read-icon">
-                        <i class="fa-solid fa-arrow-right"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- SINGLE NEWS END -->
-
-        <!-- SINGLE NEWS START -->
-        <div class="single-news-content">
-          <div class="card mb-3 py-3 px-3 border-0 rounded-3">
-            <div class="row g-2">
-              <div class="col-md-4 col-lg-3">
-                <img src="./images/blog-2.png" class="img-fluid w-100 rounded-3" alt="...">
-              </div>
-              <div class="col-md-8 col-lg-9">
-                <div class="card-body h-100 d-flex flex-column justify-content-between">
-                  <h2 class="card-title">The best fashion influencers to follow for sartorial inspiration</h2>
-                  <p class="card-text">
-                    From our favourite UK influencers to the best missives from Milan and the coolest New Yorkers, read
-                    on some of the best fashion blogs out there, and for even more inspiration, do head to our separate
-                    black fashion influencer round-up.
-
-                  <p>
-                    Fancy some shopping deals? Check out these amazing sales: Zara Black Friday, ASOS Black Friday,
-                    Missoma Black Friday and Gucci Black Friday...
-                  </p>
-                  </p>
-                  <div class="single-content-extra-info">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="author-info d-flex">
-                        <img src="./images/avator.png" class="img-fluid" alt="author"
-                          style="height: 45px; width: 45px;">
-                        <div class="ms-2">
-                          <span>Jane Cooper</span>
-                          <br>
-                          <span>Jan 10, 2022</span>
-                        </div>
-                      </div>
-                      <div class="news-view">
-                        <i class="fa-regular fa-eye"></i>
-                        <span class="ps-2">1.5M</span>
-                      </div>
-                      <div class="news-rating d-sm-none d-md-block">
-                        <i class="fa-regular fa-star-half-stroke"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                      </div>
-                      <div class="read-icon">
-                        <i class="fa-solid fa-arrow-right"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- SINGLE NEWS END -->
-
-        <!-- SINGLE NEWS START -->
-        <div class="single-news-content">
-          <div class="card mb-3 py-3 px-3 border-0 rounded-3">
-            <div class="row g-2">
-              <div class="col-md-4 col-lg-3">
-                <img src="./images/blog-3.png" class="img-fluid w-100 rounded-3" alt="...">
-              </div>
-              <div class="col-md-8 col-lg-9">
-                <div class="card-body h-100 d-flex flex-column justify-content-between">
-                  <h2 class="card-title">The best fashion influencers to follow for sartorial inspiration</h2>
-                  <p class="card-text">
-                    From our favourite UK influencers to the best missives from Milan and the coolest New Yorkers, read
-                    on some of the best fashion blogs out there, and for even more inspiration, do head to our separate
-                    black fashion influencer round-up.
-
-                  <p>
-                    Fancy some shopping deals? Check out these amazing sales: Zara Black Friday, ASOS Black Friday,
-                    Missoma Black Friday and Gucci Black Friday...
-                  </p>
-                  </p>
-                  <div class="single-content-extra-info">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="author-info d-flex">
-                        <img src="./images/avator.png" class="img-fluid" alt="author"
-                          style="height: 45px; width: 45px;">
-                        <div class="ms-2">
-                          <span>Jane Cooper</span>
-                          <br>
-                          <span>Jan 10, 2022</span>
-                        </div>
-                      </div>
-                      <div class="news-view">
-                        <i class="fa-regular fa-eye"></i>
-                        <span class="ps-2">1.5M</span>
-                      </div>
-                      <div class="news-rating d-sm-none d-md-block">
-                        <i class="fa-regular fa-star-half-stroke"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                      </div>
-                      <div class="read-icon">
-                        <i class="fa-solid fa-arrow-right"></i>
+                      <div class="read-news">
+                        <button class="read-news-button">
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -283,14 +151,18 @@
   <!-- MAIN CONTENT END -->
 
   <!-- FOOTER START -->
-  <footer class="footer">
-
+  <footer class="footer bg-white py-4">
+    <p class="secondary-color text-center fw-medium m-0">&copy; Copyright 2022 - Creative News</p>
   </footer>
   <!-- FOOTER END -->
 
 
   <!-- BOOTSTRAP JS SCRIPT -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JS SCRIPT -->
+  <script src="./js/main.js"></script>
+  <script src="./js/news-category.js"></script>
 </body>
 
 </html>

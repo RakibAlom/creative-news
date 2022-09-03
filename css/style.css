@@ -3,15 +3,13 @@
 
 body {
   font-family: 'Roboto Slab', serif;
-  max-width: 1400px;
-  margin: auto;
   background-color: #F6F6F6;
 }
 
 /* ROOT CSS */
 :root {
   --primary-color: #5D5FEF;
-  --secondary-color: #515151;
+  --secondary-color: #858585;
   --text-color: #949494;
   --bg-primary-color: #5D5FEF;
   --bg-hover-color: #EEEFFF;
@@ -21,6 +19,14 @@ body {
 
 .primary-color {
   color: var(--primary-color);
+}
+
+.text-color {
+  color: var(--text-color);
+}
+
+.secondary-color {
+  color: var(--secondary-color);
 }
 
 .bg-primary-color {
@@ -110,6 +116,8 @@ button.navbar-toggler:focus {
   color: #ABADC6;
   padding: 5px 35px;
   outline: none;
+  font-size: 14px;
+  border-radius: 4px;
 }
 
 .filter .trending-filter .btn {
@@ -135,4 +143,63 @@ button.navbar-toggler:focus {
 }
 
 /* FILTER AREA END */
-/* ============== MAIN CONTENT END ============== */
+
+/* =====  NEWS CONTENT START ===== */
+.news-title {
+  cursor: pointer;
+}
+
+/* SINGLE NEWS START */
+.single-news-content .news-description {
+  line-height: 26.5px;
+}
+
+.single-content-extra-info {
+  color: var(--secondary-color);
+  font-size: 18px;
+}
+
+.single-content-extra-info img {
+  height: 45px;
+  width: 45px;
+}
+
+.single-content-extra-info .date {
+  font-size: 14px;
+}
+
+.read-news-button {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 25px;
+  height: 40px;
+  width: 40px;
+  color: var(--primary-color);
+  transition: 0.1s ease-in;
+}
+
+.read-news-button:hover {
+  background-color: var(--bg-primary-color);
+  color: #fff;
+}
+
+/* SINGLE NEWS END */
+/* =====  NEWS CONTENT END ===== */
+
+/* ============== MEDIA QUERY START ============== */
+@media screen and (max-width:575px) {
+  .filter {
+    font-size: 14px;
+  }
+
+  .single-content-extra-info {
+    font-size: 14px;
+  }
+
+  .single-content-extra-info img {
+    height: 35px;
+    width: 35px;
+  }
+}
+
+/* ============== MEDIA QUERY END ============== */

@@ -3,9 +3,20 @@
 
 body {
   font-family: 'Roboto Slab', serif;
-  max-width: 1280px;
+  max-width: 1400px;
   margin: auto;
 }
+
+/* ROOT CSS */
+:root {
+  --primary-color: #5D5FEF;
+  --secondary-color: #515151;
+  --text-color: #949494;
+  --bg-primary-color: #5D5FEF;
+  --bg-hover-color: #EEEFFF;
+}
+
+/* ROOT CSS */
 
 /* ============== HEADER START ============== */
 
@@ -16,7 +27,7 @@ body {
 
 .top-menu .nav-link.active,
 .top-menu .nav-link:hover {
-  color: #5D5FEF;
+  color: var(--primary-color);
 }
 
 .top-menu .nav-link.active::after,
@@ -26,8 +37,8 @@ body {
   width: 20px;
   display: block;
   margin: auto;
-  background-color: #5D5FEF;
-  color: #5D5FEF;
+  background-color: var(--bg-primary-color);
+  color: var(--primary-color);
   border-radius: 2px;
 }
 
@@ -45,7 +56,7 @@ body {
 }
 
 button.navbar-toggler {
-  border: 2px solid #858585;
+  border: 2px solid var(--secondary-color);
   outline: none;
 }
 
@@ -61,8 +72,8 @@ button.navbar-toggler:focus {
 
 .main-menu .nav-item .nav-link.active,
 .main-menu .nav-item .nav-link:hover {
-  background-color: #EEEFFF;
-  color: #5D5FEF;
+  background-color: var(--bg-hover-color);
+  color: var(--primary-color);
   border-radius: 5px;
 }
 

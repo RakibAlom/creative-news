@@ -10,7 +10,7 @@ const allCategory = (categories) => {
     const li = document.createElement('li');
     li.classList.add('nav-item');
     li.innerHTML = `
-      <a class="nav-link" href="#" onclick="categoryPost('${category.category_id}')">${category.category_name}</a>
+      <a class="nav-link" href="#" id="categoyrNav${category.category_id}" onclick="loadNews('${category.category_id}')">${category.category_name}</a>
     `
     newsCategory.appendChild(li);
   })

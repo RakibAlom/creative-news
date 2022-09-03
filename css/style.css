@@ -80,6 +80,11 @@ body {
   border: none;
 }
 
+.top-menu .profile img {
+  height: 30px;
+  width: 30px;
+}
+
 button.navbar-toggler {
   border: 2px solid var(--secondary-color);
   outline: none;
@@ -147,6 +152,13 @@ button.navbar-toggler:focus {
 /* =====  NEWS CONTENT START ===== */
 .news-title {
   cursor: pointer;
+  color: #121221;
+  text-decoration: none;
+  transition: 0.1s ease-in-out;
+}
+
+.news-title:hover {
+  color: var(--primary-color);
 }
 
 /* SINGLE NEWS START */

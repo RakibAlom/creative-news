@@ -46,6 +46,7 @@ body {
 /* ============== HEADER START ============== */
 
 /* TOP MENU START */
+
 .top-menu .nav-link {
   position: relative;
 }
@@ -200,6 +201,10 @@ button.navbar-toggler:focus {
 
 /* ============== MEDIA QUERY START ============== */
 @media screen and (max-width:575px) {
+  .top-menu .navbar-brand {
+    font-size: 18px;
+  }
+
   .filter {
     font-size: 14px;
   }

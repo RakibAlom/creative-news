@@ -21,12 +21,12 @@
     <!-- TOP MENU START -->
     <nav class="navbar navbar-expand top-menu">
       <div class="container-xl">
-        <a class="navbar-brand" href="./index.html">
-          <!-- <span class="bg-primary-color py-1 px-2 text-white rounded-1">Creative</span> News -->Creative News
+        <a class="navbar-brand fw-bolder" href="./index.html">
+          <span class="primary-color rounded-1">Creative</span> News
         </a>
-        <div class="navbar-nav ms-auto gap-1 gap-md-3">
+        <div class="navbar-nav ms-auto gap-0 gap-md-3">
           <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-          <a class="nav-link" href="#">Blog</a>
+          <a class="nav-link" href="./blog.html">Blog</a>
           <a class="nav-link profile" href="#">
             <img src="./images/avator.png" alt="" class="rounded-circle">
           </a>
@@ -60,88 +60,81 @@
   <!-- HEADER END -->
 
   <!-- MAIN CONTENT START -->
-  <main class="main-content py-4">
-    <div class="container-xl">
+  <main class="main-content py-4 container-xl" id="main-content">
+    <!-- CONTENT ALERT START -->
+    <div class="content-alert alert bg-white d-none" id="content-alert" role="alert">
+      <span>4 items found for category Entertainment</span>
+    </div>
+    <!-- CONTENT ALERT END -->
 
-      <!-- CONTENT ALERT START -->
-      <div class="content-alert alert bg-white d-none" id="content-alert" role="alert">
-        <span>4 items found for category Entertainment</span>
+    <!-- FILTER AREA START -->
+    <div class="filter d-md-flex justify-content-between py-4">
+      <div class="short-filter">
+        <span>Sort By View:</span>
+        <select class="short-filter ms-3" name="short-filter" id="short-filter">
+          <option value="Default">Default</option>
+          <option value="View">View</option>
+        </select>
       </div>
-      <!-- CONTENT ALERT END -->
-
-      <!-- FILTER AREA START -->
-      <div class="filter d-md-flex justify-content-between py-4">
-        <div class="short-filter">
-          <span>Sort By View:</span>
-          <select class="short-filter ms-3" name="short-filter" id="short-filter">
-            <option value="Default">Default</option>
-            <option value="View">View</option>
-          </select>
-        </div>
-        <div class="trending-filter">
-          <button class="btn">Today's Pick</button>
-          <button class="btn btn-outline">Trending</button>
-        </div>
+      <div class="trending-filter">
+        <button class="btn">Today's Pick</button>
+        <button class="btn btn-outline">Trending</button>
       </div>
-      <!-- FILTER AREA END -->
+    </div>
+    <!-- FILTER AREA END -->
 
-      <!-- LOADING SPINNER START -->
-      <div class="d-flex justify-content-center d-none my-4" id="loading-spinner">
-        <div class="spinner-grow text-secondary" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div>
+    <!-- LOADING SPINNER START -->
+    <div class="d-flex justify-content-center d-none my-4" id="loading-spinner">
+      <div class="spinner-grow text-secondary" role="status">
+        <span class="visually-hidden">Loading...</span>
       </div>
-      <!-- LOADING SPINNER END -->
+    </div>
+    <!-- LOADING SPINNER END -->
 
-      <!-- NEWS CONTENT START -->
-      <div class="news-content py-2" id="news-content">
+    <!-- NEWS CONTENT START -->
+    <div class="news-content py-2" id="news-content">
 
-      </div>
-      <!-- NEWS CONTENT END -->
+    </div>
+    <!-- NEWS CONTENT END -->
 
-      <!-- SINGLE NEWS DETAILS MODAL START -->
-      <div class="modal fade" id="singleNews" tabindex="-1" aria-labelledby="singleNewsLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <h2 id="single-news-title">Biden Pledges Nearly $3 Billion To Ukraine In Largest U.S. Military Aid Package
-                Yet</h2>
-              <div class="single-content-extra-info">
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="author-info d-flex align-items-center">
-                    <img id="single-news-author-img" src="" class="img-fluid" alt="author">
-                    <div class="ms-2 d-flex flex-column">
-                      <span class="text-dark" id="single-news-author">${news.author.name}</span>
-                      <span class="date" id="single-news-date">${news.author.published_date}</span>
-                    </div>
-                  </div>
-                  <div class="news-view">
-                    <i class="fa-regular fa-eye"></i>
-                    <span class="ps-2 fw-bold" id="news-views-count"></span>
-                  </div>
-                  <div class="news-rating d-none d-md-block">
-                    <i class="fa-regular fa-star-half-stroke"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
-                    <i class="fa-regular fa-star"></i>
+    <!-- SINGLE NEWS DETAILS MODAL START -->
+    <div class="modal fade" id="singleNews" tabindex="-1" aria-labelledby="singleNewsLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="" class="img-fluid" id="single-news-thubmnail" alt="">
+            <div class="single-content-extra-info my-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="author-info d-flex align-items-center">
+                  <img id="single-news-author-img" src="" class="img-fluid" alt="author">
+                  <div class="ms-2 d-flex flex-column">
+                    <span class="text-dark" id="single-news-author"></span>
+                    <span class="date" id="single-news-date"></span>
                   </div>
                 </div>
+                <div class="news-view">
+                  <i class="fa-regular fa-eye"></i>
+                  <span class="ps-2 fw-bold" id="news-views-count"></span>
+                </div>
+                <div class="news-rating d-none d-md-block">
+                  <i class="fa-regular fa-star-half-stroke"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </div>
               </div>
-              <img src="" class="img-fluid my-4" id="single-news-thubmnail" alt="">
-              <p id="single-news-details">
-
-              </p>
             </div>
+            <h4 id="single-news-title" class="py-2"></h4>
+            <p id="single-news-details"></p>
           </div>
         </div>
       </div>
-      <!-- SINGLE NEWS DETAILS MODAL END -->
-
     </div>
+    <!-- SINGLE NEWS DETAILS MODAL END -->
   </main>
   <!-- MAIN CONTENT END -->
 
@@ -159,6 +152,7 @@
   <script src="./js/utilities.js"></script>
   <script src="./js/news-category.js"></script>
   <script src="./js/get-posts.js"></script>
+  <script src="./js/blog-page.js"></script>
 </body>
 
 </html>

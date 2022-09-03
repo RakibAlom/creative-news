@@ -1,29 +1,28 @@
-const loadNews = async (categoryId) => {
-
+const loadNews = async (categoryId, categoryName) => {
   toggleSpinner(true);
 
   const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`;
   const res = await fetch(url);
   const data = await res.json();
-  categoryNews(data.data);
+  categoryNews(data.data, categoryName);
 
   // CATEGORY ACTIVE VIEW
   const categoryNavs = document.querySelectorAll('#news-category .nav-item .nav-link');
   for (let navLink of categoryNavs) {
     navLink.classList.remove('active');
-    console.log(navLink)
   }
   const categoryNavId = getId(`categoyrNav${categoryId}`);
   categoryNavId.classList.add('active');
 }
 
-const categoryNews = (allnews) => {
+const categoryNews = (allnews, categoryName) => {
   const newsContent = getId('news-content');
   newsContent.textContent = "";
 
+  // Total Found News
   const alert = getId('content-alert');
   alert.innerHTML = `
-    <b class="primary-color">${allnews.length}</b> items found for category Entertainment
+    <b class="primary-color">${allnews.length}</b> news found for ${categoryName}
   `
   alert.classList.remove('d-none');
 
@@ -52,13 +51,13 @@ const categoryNews = (allnews) => {
                       <div class="author-info d-flex align-items-center">
                         <img src="${news.author.img}" class="img-fluid" alt="author">
                         <div class="ms-2 d-flex flex-column">
-                          <span class="text-dark">${news.author.name}</span>
-                          <span class="date">${news.author.published_date}</span>
+                          <span class="text-dark">${news.author.name ? news.author.name : "No Data"}</span>
+                          <span class="date">${news.author.published_date ? news.author.published_date : "No Data"}</span>
                         </div>
                       </div>
                       <div class="news-view">
                         <i class="fa-regular fa-eye"></i>
-                        <span class="ps-2 fw-bold">${news.total_view}</span>
+                        <span class="ps-2 fw-bold">${news.total_view ? news.total_view : "No Data"}</span>
                       </div>
                       <div class="news-rating d-none d-md-block">
                         <i class="fa-regular fa-star-half-stroke"></i>
@@ -93,14 +92,14 @@ const singleNewsDetails = async (news_id) => {
   const res = await fetch(getNews);
   const data = await res.json();
   const news = data.data[0];
-  console.log(news);
+
   // NEWS TITLE
   const title = getId('single-news-title');
   title.innerText = news.title;
 
   // NEWS AUTHOR
   const author = getId('single-news-author');
-  author.innerText = news.author.name;
+  author.innerText = news.author.name ? news.author.name : "No Data";
 
   // NEWS AUTHOR IMG
   const authorImg = getId('single-news-author-img');
@@ -108,11 +107,11 @@ const singleNewsDetails = async (news_id) => {
 
   // NEWS DATE
   const date = getId('single-news-date');
-  date.innerText = news.author.published_date;
+  date.innerText = news.author.published_date ? news.author.published_date : "No Data";
 
   // NEWS VIEWS COUNT
   const views = getId('news-views-count');
-  views.innerText = news.total_view;
+  views.innerText = news.total_view ? news.total_view : "No Data";
 
   // NEWS DETAILS
   const details = getId('single-news-details');

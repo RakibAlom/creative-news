@@ -101,7 +101,7 @@
 
       <!-- SINGLE NEWS DETAILS MODAL START -->
       <div class="modal fade" id="singleNews" tabindex="-1" aria-labelledby="singleNewsLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -112,7 +112,7 @@
               <div class="single-content-extra-info">
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="author-info d-flex align-items-center">
-                    <img src="${news.author.img}" class="img-fluid" alt="author">
+                    <img id="single-news-author-img" src="" class="img-fluid" alt="author">
                     <div class="ms-2 d-flex flex-column">
                       <span class="text-dark" id="single-news-author">${news.author.name}</span>
                       <span class="date" id="single-news-date">${news.author.published_date}</span>
@@ -120,7 +120,7 @@
                   </div>
                   <div class="news-view">
                     <i class="fa-regular fa-eye"></i>
-                    <span class="ps-2 fw-bold" id="news-view-count"></span>
+                    <span class="ps-2 fw-bold" id="news-views-count"></span>
                   </div>
                   <div class="news-rating d-none d-md-block">
                     <i class="fa-regular fa-star-half-stroke"></i>
@@ -131,10 +131,9 @@
                   </div>
                 </div>
               </div>
+              <img src="" class="img-fluid my-4" id="single-news-thubmnail" alt="">
               <p id="single-news-details">
-                Tucker Carlson has rarely met a dictator's ass he didn't want to kiss, and Vladimir Putin is at the very
-                top of that puckering up list. The Fox News host is something of a folk hero in Russia: Because of the
-                pro-Putin propaganda he so often...
+
               </p>
             </div>
           </div>

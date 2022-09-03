@@ -41,7 +41,7 @@ const categoryNews = (allnews) => {
               </div>
               <div class="col-md-8 col-lg-9 py-md-2 px-md-4">
                 <div class="card-body px-0 px-md-2 h-100 d-flex flex-column justify-content-center">
-                  <a href="#" class="news-title">
+                  <a href="#" class="news-title" onclick="singleNewsDetails('${news._id}')" data-bs-toggle="modal" data-bs-target="#singleNews">
                     <h2>${news.title}</h2>
                   </a>
                   <p class="news-description py-3 text-color">
@@ -88,7 +88,38 @@ const categoryNews = (allnews) => {
   toggleSpinner(false);
 }
 
-const singleNewsDetails = news_id => {
-  const news = `https://openapi.programming-hero.com/api/news/${news_id}`;
+const singleNewsDetails = async (news_id) => {
+  const getNews = `https://openapi.programming-hero.com/api/news/${news_id}`;
+  const res = await fetch(getNews);
+  const data = await res.json();
+  const news = data.data[0];
+  console.log(news);
+  // NEWS TITLE
+  const title = getId('single-news-title');
+  title.innerText = news.title;
+
+  // NEWS AUTHOR
+  const author = getId('single-news-author');
+  author.innerText = news.author.name;
+
+  // NEWS AUTHOR IMG
+  const authorImg = getId('single-news-author-img');
+  authorImg.src = news.author.img;
+
+  // NEWS DATE
+  const date = getId('single-news-date');
+  date.innerText = news.author.published_date;
+
+  // NEWS VIEWS COUNT
+  const views = getId('news-views-count');
+  views.innerText = news.total_view;
+
+  // NEWS DETAILS
+  const details = getId('single-news-details');
+  details.innerText = news.details;
+
+  // NEWS THUMBNAIL
+  const img = getId('single-news-thubmnail');
+  img.src = news.image_url;
 
 }

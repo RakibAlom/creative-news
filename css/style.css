@@ -16,6 +16,7 @@ body {
   --bg-primary-color: #5D5FEF;
   --bg-hover-color: #EEEFFF;
   --bg-white: #ffffff;
+  --border-color: #5D5FEF;
 }
 
 .primary-color {
@@ -28,6 +29,10 @@ body {
 
 .bg-white {
   background-color: var(--bg-white);
+}
+
+.border-color {
+  border-color: var(--border-color);
 }
 
 /* ROOT CSS */
@@ -45,7 +50,7 @@ body {
 }
 
 .top-menu .nav-link.active::after,
-.top-menu .nav-link:hover::after {
+.top-menu .nav-link:not(.profile):hover::after {
   content: "";
   height: 2px;
   width: 20px;
@@ -94,3 +99,40 @@ button.navbar-toggler:focus {
 /* MAIN MENU END */
 
 /* ============== HEADER END ============== */
+
+
+/* ============== MAIN CONTENT START ============== */
+/* FILTER AREA START */
+
+.filter .short-filter .short-filter {
+  border: none;
+  background-color: #fff;
+  color: #ABADC6;
+  padding: 5px 35px;
+  outline: none;
+}
+
+.filter .trending-filter .btn {
+  border-color: var(--border-color);
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  color: #fff;
+  transition: 0.2s ease-in-out;
+}
+
+.filter .trending-filter .btn:hover {
+  opacity: 0.9;
+}
+
+.filter .trending-filter .btn-outline {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+.filter .trending-filter .btn-outline:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+/* FILTER AREA END */
+/* ============== MAIN CONTENT END ============== */

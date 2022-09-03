@@ -1,18 +1,25 @@
 const loadNews = async (categoryId, categoryName) => {
+
   toggleSpinner(true);
 
-  const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`;
-  const res = await fetch(url);
-  const data = await res.json();
-  categoryNews(data.data, categoryName);
+  try {
+    const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`;
+    const res = await fetch(url);
+    const data = await res.json();
 
-  // CATEGORY ACTIVE VIEW
-  const categoryNavs = document.querySelectorAll('#news-category .nav-item .nav-link');
-  for (let navLink of categoryNavs) {
-    navLink.classList.remove('active');
+    categoryNews(data.data, categoryName);
+
+    // CATEGORY ACTIVE VIEW
+    const categoryNavs = document.querySelectorAll('#news-category .nav-item .nav-link');
+    for (let navLink of categoryNavs) {
+      navLink.classList.remove('active');
+    }
+    const categoryNavId = getId(`categoyrNav${categoryId}`);
+    categoryNavId.classList.add('active');
+  } catch (error) {
+    console.log(error);
   }
-  const categoryNavId = getId(`categoyrNav${categoryId}`);
-  categoryNavId.classList.add('active');
+
 }
 
 const categoryNews = (allnews, categoryName) => {
@@ -31,48 +38,46 @@ const categoryNews = (allnews, categoryName) => {
 
     const div = document.createElement('div');
     div.innerHTML = `
-      <!-- SINGLE NEWS START -->
-        <div class="single-news-content">
-          <div class="card mb-3 py-2 px-2 px-md-3 py-md-3 border-0 rounded-3">
-            <div class="row g-2">
-              <div class="col-md-4 col-lg-3">
-                <img src="${news.thumbnail_url}" class="img-fluid w-100 rounded-3" alt="${news.title}">
-              </div>
-              <div class="col-md-8 col-lg-9 py-md-2 px-md-4">
-                <div class="card-body px-0 px-md-2 h-100 d-flex flex-column justify-content-center">
-                  <a href="#" class="news-title" onclick="singleNewsDetails('${news._id}')" data-bs-toggle="modal" data-bs-target="#singleNews">
-                    <h2>${news.title}</h2>
-                  </a>
-                  <p class="news-description py-3 text-color">
-                    ${news.details.slice(0, 240)}...
-                  </p>
-                  <div class="single-content-extra-info">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="author-info d-flex align-items-center">
-                        <img src="${news.author.img}" class="img-fluid" alt="author">
-                        <div class="ms-2 d-flex flex-column">
-                          <span class="text-dark">${news.author.name ? news.author.name : "No Data"}</span>
-                          <span class="date">${news.author.published_date ? news.author.published_date : "No Data"}</span>
-                        </div>
+      <div class="single-news-content">
+        <div class="card mb-3 py-2 px-2 px-md-3 py-md-3 border-0 rounded-3">
+          <div class="row g-2">
+            <div class="col-md-4 col-lg-3">
+              <img src="${news.thumbnail_url}" class="img-fluid w-100 rounded-3" alt="${news.title}">
+            </div>
+            <div class="col-md-8 col-lg-9 py-md-2 px-md-4">
+              <div class="card-body px-0 px-md-2 h-100 d-flex flex-column justify-content-center">
+                <a href="#" class="news-title" onclick="singleNewsDetails('${news._id}')" data-bs-toggle="modal" data-bs-target="#singleNews">
+                  <h2>${news.title}</h2>
+                </a>
+                <p class="news-description py-3 text-color">
+                  ${news.details.slice(0, 240)}...
+                </p>
+                <div class="single-content-extra-info">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="author-info d-flex align-items-center">
+                      <img src="${news.author.img}" class="img-fluid rounded" alt="author">
+                      <div class="ms-2 d-flex flex-column">
+                        <span class="text-dark">${news.author.name ? news.author.name : "No Data"}</span>
+                        <span class="date">${news.author.published_date ? news.author.published_date : "No Data"}</span>
                       </div>
-                      <div class="news-view">
-                        <i class="fa-regular fa-eye"></i>
-                        <span class="ps-2 fw-bold">${news.total_view ? news.total_view : "No Data"}</span>
-                      </div>
-                      <div class="news-rating d-none d-md-block">
-                        <i class="fa-regular fa-star-half-stroke"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                      </div>
-                      <div class="read-news">
-                        <a href="#" onclick="singleNewsDetails('${news._id}')" data-bs-toggle="modal" data-bs-target="#singleNews">
-                          <button class="read-news-button">
-                            <i class="fa-solid fa-arrow-right"></i>
-                          </button>
-                        </a>
-                      </div>
+                    </div>
+                    <div class="news-view">
+                      <i class="fa-regular fa-eye"></i>
+                      <span class="ps-2 fw-bold">${news.total_view ? news.total_view : "No Data"}</span>
+                    </div>
+                    <div class="news-rating d-none d-md-block">
+                      <i class="fa-regular fa-star-half-stroke"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                      <i class="fa-regular fa-star"></i>
+                    </div>
+                    <div class="read-news">
+                      <a href="#" onclick="singleNewsDetails('${news._id}')" data-bs-toggle="modal" data-bs-target="#singleNews">
+                        <button class="read-news-button">
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -80,7 +85,7 @@ const categoryNews = (allnews, categoryName) => {
             </div>
           </div>
         </div>
-      <!-- SINGLE NEWS END -->
+      </div>
     `;
     newsContent.appendChild(div);
   })
@@ -88,37 +93,43 @@ const categoryNews = (allnews, categoryName) => {
 }
 
 const singleNewsDetails = async (news_id) => {
-  const getNews = `https://openapi.programming-hero.com/api/news/${news_id}`;
-  const res = await fetch(getNews);
-  const data = await res.json();
-  const news = data.data[0];
+  try {
+    const getNews = `https://openapi.programming-hero.com/api/news/${news_id}`;
+    const res = await fetch(getNews);
+    const data = await res.json();
+    const news = data.data[0];
 
-  // NEWS TITLE
-  const title = getId('single-news-title');
-  title.innerText = news.title;
+    const newsDetails = getId('news-body');
+    newsDetails.innerHTML = `
+      <img src="${news.image_url}" class="img-fluid" alt="">
+      <div class="single-content-extra-info my-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="author-info d-flex align-items-center">
+            <img src="${news.author.img}" class="img-fluid rounded" alt="author">
+            <div class="ms-2 d-flex flex-column">
+              <span class="text-dark">${news.author.name ? news.author.name : "No Data"}</span>
+              <span class="date">${news.author.published_date ? news.author.published_date : "No Data"}</span>
+            </div>
+          </div>
+          <div class="news-view">
+            <i class="fa-regular fa-eye"></i>
+            <span class="ps-2 fw-bold">${news.total_view ? news.total_view : "No Data"}</span>
+          </div>
+          <div class="news-rating d-none d-md-block">
+            <i class="fa-regular fa-star-half-stroke"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+        </div>
+      </div>
+      <h4 class="py-2">${news.title}</h4>
+      <div id="single-news-details">${news.details}</div>
+    `
 
-  // NEWS AUTHOR
-  const author = getId('single-news-author');
-  author.innerText = news.author.name ? news.author.name : "No Data";
-
-  // NEWS AUTHOR IMG
-  const authorImg = getId('single-news-author-img');
-  authorImg.src = news.author.img;
-
-  // NEWS DATE
-  const date = getId('single-news-date');
-  date.innerText = news.author.published_date ? news.author.published_date : "No Data";
-
-  // NEWS VIEWS COUNT
-  const views = getId('news-views-count');
-  views.innerText = news.total_view ? news.total_view : "No Data";
-
-  // NEWS DETAILS
-  const details = getId('single-news-details');
-  details.innerText = news.details;
-
-  // NEWS THUMBNAIL
-  const img = getId('single-news-thubmnail');
-  img.src = news.image_url;
+  } catch (error) {
+    console.log(error);
+  }
 
 }

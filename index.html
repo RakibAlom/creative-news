@@ -68,15 +68,15 @@
     <!-- CONTENT ALERT END -->
 
     <!-- FILTER AREA START -->
-    <div class="filter d-md-flex justify-content-between py-4">
-      <div class="short-filter">
+    <div class="filter d-md-flex justify-content-between py-2 py-md-4">
+      <div class="short-filter text-center">
         <span>Sort By View:</span>
         <select class="short-filter ms-3" name="short-filter" id="short-filter">
           <option value="Default">Default</option>
           <option value="View">View</option>
         </select>
       </div>
-      <div class="trending-filter">
+      <div class="trending-filter text-center pt-2 pt-sm-0">
         <button class="btn">Today's Pick</button>
         <button class="btn btn-outline">Trending</button>
       </div>
@@ -104,32 +104,8 @@
           <div class="modal-header">
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            <img src="" class="img-fluid" id="single-news-thubmnail" alt="">
-            <div class="single-content-extra-info my-3">
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="author-info d-flex align-items-center">
-                  <img id="single-news-author-img" src="" class="img-fluid" alt="author">
-                  <div class="ms-2 d-flex flex-column">
-                    <span class="text-dark" id="single-news-author"></span>
-                    <span class="date" id="single-news-date"></span>
-                  </div>
-                </div>
-                <div class="news-view">
-                  <i class="fa-regular fa-eye"></i>
-                  <span class="ps-2 fw-bold" id="news-views-count"></span>
-                </div>
-                <div class="news-rating d-none d-md-block">
-                  <i class="fa-regular fa-star-half-stroke"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                </div>
-              </div>
-            </div>
-            <h4 id="single-news-title" class="py-2"></h4>
-            <p id="single-news-details"></p>
+          <div class="modal-body" id="news-body">
+
           </div>
         </div>
       </div>
@@ -152,7 +128,6 @@
   <script src="./js/utilities.js"></script>
   <script src="./js/news-category.js"></script>
   <script src="./js/get-posts.js"></script>
-  <script src="./js/blog-page.js"></script>
 </body>
 
 </html>

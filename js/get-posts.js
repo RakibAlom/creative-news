@@ -26,23 +26,24 @@ const categoryNews = (allnews, categoryName) => {
   const newsContent = getId('news-content');
   newsContent.textContent = "";
 
-  // Total Found News
-  const alert = getId('content-alert');
-  alert.innerHTML = `
+  try {
+    // Total Found News
+    const alert = getId('content-alert');
+    alert.innerHTML = `
     <b class="primary-color">${allnews.length}</b> news found for ${categoryName}
   `
-  alert.classList.remove('d-none');
+    alert.classList.remove('d-none');
 
-  // NEWS DEFAULT SORTING BY TOTAL VIEW
-  allnews.sort((a, b) => b.total_view - a.total_view);
+    // NEWS DEFAULT SORTING BY TOTAL VIEW
+    allnews.sort((a, b) => b.total_view - a.total_view);
 
 
-  // GET ALL NEWS BY CATEGORY
-  if (allnews.length > 0) {
-    allnews.forEach(news => {
-      const newsDate = new Date(news.author.published_date);
-      const div = document.createElement('div');
-      div.innerHTML = `
+    // GET ALL NEWS BY CATEGORY
+    if (allnews.length > 0) {
+      allnews.forEach(news => {
+        const newsDate = new Date(news.author.published_date);
+        const div = document.createElement('div');
+        div.innerHTML = `
         <div class="single-news-content">
           <div class="card mb-3 py-2 px-2 px-md-3 py-md-3 border-0 rounded-3">
             <div class="row g-2">
@@ -55,7 +56,7 @@ const categoryNews = (allnews, categoryName) => {
                     <h2>${news.title}</h2>
                   </a>
                   <p class="news-description py-3 text-color">
-                    ${news.details.slice(0, 240)}...
+                    ${news.details.slice(0, 240) + '...'}
                   </p>
                   <div class="single-content-extra-info">
                     <div class="d-flex justify-content-between align-items-center">
@@ -93,14 +94,17 @@ const categoryNews = (allnews, categoryName) => {
         </div>
       `;
 
-      newsContent.appendChild(div);
-    })
-  } else {
-    newsContent.innerHTML = `
+        newsContent.appendChild(div);
+      })
+    } else {
+      newsContent.innerHTML = `
       <h2 class="py-4 text-center">No News Found for <span class="primary-color">${categoryName}</span></h2>
     `
+    }
+    toggleSpinner(false);
+  } catch (error) {
+    console.log(error);
   }
-  toggleSpinner(false);
 }
 
 const singleNewsDetails = async (news_id) => {

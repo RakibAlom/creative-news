@@ -86,13 +86,7 @@ body {
   width: 30px;
 }
 
-button.navbar-toggler {
-  border: 2px solid var(--secondary-color);
-  outline: none;
-}
-
 button.navbar-toggler:focus {
-  outline: none;
   box-shadow: none;
 }
 

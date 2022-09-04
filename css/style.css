@@ -8,13 +8,13 @@ body {
 
 /* ROOT CSS */
 :root {
-  --primary-color: #5D5FEF;
+  --primary-color: #F32424;
   --secondary-color: #858585;
   --text-color: #949494;
-  --bg-primary-color: #5D5FEF;
-  --bg-hover-color: #EEEFFF;
+  --bg-primary-color: #F32424;
+  --bg-hover-color: #fceded;
   --bg-white: #ffffff;
-  --border-color: #5D5FEF;
+  --border-color: #F32424;
 }
 
 .primary-color {
@@ -169,7 +169,6 @@ button.navbar-toggler:focus {
 
 .single-content-extra-info {
   color: var(--secondary-color);
-  font-size: 18px;
 }
 
 .single-content-extra-info img {
@@ -201,8 +200,13 @@ button.navbar-toggler:focus {
 
 /* ============== MEDIA QUERY START ============== */
 @media screen and (max-width:575px) {
+
   .top-menu .navbar-brand {
-    font-size: 18px;
+    font-size: 16px;
+  }
+
+  .top-menu .nav-link {
+    font-size: 14px;
   }
 
   .filter {
@@ -217,6 +221,7 @@ button.navbar-toggler:focus {
     height: 35px;
     width: 35px;
   }
+
 }
 
 /* ============== MEDIA QUERY END ============== */
